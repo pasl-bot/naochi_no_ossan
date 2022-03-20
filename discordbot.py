@@ -4,6 +4,7 @@ import traceback
 
 bot = commands.Bot(command_prefix='/')
 
+isConnection = False
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -15,6 +16,11 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
+
+
+@bot.command()
+async def connect(ctx):
+    await ctx.send('connect')
 
 
 token = getenv('DISCORD_BOT_TOKEN')

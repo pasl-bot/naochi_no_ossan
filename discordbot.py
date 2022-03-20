@@ -6,7 +6,7 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 
 emoji_list = ["1⃣", "2⃣", "3⃣", "4⃣", "5⃣", "6⃣", "7⃣", "8⃣", "9⃣", "🔟"]
-recruit_channel = getenv('RECRUIT_CHANNEL')
+recruit_channel = int(getenv('RECRUIT_CHANNEL'))
 
 isConnection = False
 

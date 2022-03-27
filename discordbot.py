@@ -34,10 +34,8 @@ async def recruit(ctx, title, description, *select):
     for num in range(len(select)):
         value += emoji_list[num] + " " + select[num] + "\n"
     
-    allowed_mentions = discord.AllowedMentions(everyone = True)
-    
     embed = discord.Embed(title = value, color = discord.Colour.blue())
-    msg = await channel.send("**" + title+ "**", content = "@everyone", allowed_mentions = allowed_mentions, description = description, embed = embed)
+    msg = await channel.send("**" + title+ "**", description = description, embed = embed)
 
     for i in range(len(select)):
         await msg.add_reaction(emoji_list[i])

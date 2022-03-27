@@ -6,7 +6,8 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 
 emoji_list = ["1⃣", "2⃣", "3⃣", "4⃣", "5⃣", "6⃣", "7⃣", "8⃣", "9⃣", "🔟"]
-recruit_channel = int(getenv('RECRUIT_CHANNEL'))
+# recruit_channel = int(getenv('RECRUIT_CHANNEL'))
+recruit_channel = 915522593908486176
 
 isConnection = False
 
@@ -34,7 +35,10 @@ async def recruit(ctx, title, description, *select):
     for num in range(len(select)):
         value += emoji_list[num] + " " + select[num] + "\n"
     
-    embed = discord.Embed(title = value, description = description, color = discord.Colour.blue())
+    allowed_mentions = discord.AllowedMentions(everyone = True)
+    await ctx.send(content = "@everyone", allowed_mentions = allowed_mentions)
+    
+    embed = discord.Embed(content = "@everyone", allowed_mentions = allowed_mentions, title = value, description = description, color = discord.Colour.blue())
     msg = await channel.send("**" + title+ "**", embed = embed)
 
     for i in range(len(select)):

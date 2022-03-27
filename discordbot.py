@@ -23,7 +23,7 @@ async def ping(ctx):
 
 
 @bot.command()
-async def recruit(ctx, title, *select):
+async def recruit(ctx, title, description, *select):
     if len(select) > 10:
         await ctx.send("選択肢が多すぎるで。ワレェ")
         return
@@ -34,7 +34,7 @@ async def recruit(ctx, title, *select):
     for num in range(len(select)):
         value += emoji_list[num] + " " + select[num] + "\n"
     
-    embed = discord.Embed(title = value, color = discord.Colour.blue())
+    embed = discord.Embed(title = value, description = description, color = discord.Colour.blue())
     msg = await channel.send("**" + title+ "**", embed = embed)
 
     for i in range(len(select)):

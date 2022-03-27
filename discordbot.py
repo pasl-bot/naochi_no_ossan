@@ -31,7 +31,7 @@ async def recruit(ctx, title, message, *select):
     channel = bot.get_channel(recruit_channel)
 
     value = ""
-    value = message
+    value = message + "\n"
     for num in range(len(select)):
         value += emoji_list[num] + " " + select[num] + "\n"
     

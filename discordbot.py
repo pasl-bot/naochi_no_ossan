@@ -31,10 +31,11 @@ async def recruit(ctx, title, message, *select):
     channel = bot.get_channel(recruit_channel)
 
     value = ""
+    value = message
     for num in range(len(select)):
         value += emoji_list[num] + " " + select[num] + "\n"
     
-    embed = discord.Embed(title = message, color = discord.Colour.blue())
+    embed = discord.Embed(title = value, color = discord.Colour.blue())
     msg = await channel.send("**" + title+ "**", embed = embed)
 
     for i in range(len(select)):
